@@ -21,8 +21,6 @@ const app = express();
 // Use jwt and token to authenticate access to protected routes
 const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("./utilities");
-
-app.use(express.json());
 app.use(
   cors({
     origin: "*",
@@ -30,6 +28,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+app.use(express.json());
 
 // start the Express server
 app.listen(PORT, () => {
